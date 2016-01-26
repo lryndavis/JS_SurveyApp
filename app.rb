@@ -38,7 +38,6 @@ post('/surveys/:id') do
   the_question = params.fetch("the_question")
   survey_id = params.fetch("survey_id")
   id = params.fetch("id")
-  #question = Question.new({:the_question => the_question, :survey_id => survey_id, :id => nil})
   question = @survey.questions.new({:the_question => the_question})
   question.save()
   erb(:questions)

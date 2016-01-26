@@ -3,7 +3,7 @@
     <br>
     <form class="" action="/surveys/<%= question.id() %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit" class="btn-block btn-danger">Delete</button>
+    <button type="submit" class="btn btn-danger">Delete</button>
     </li></ol>
   <% end %>
 
@@ -11,7 +11,7 @@
 
   <form action="/surveys/<%= @survey.id() %>" method="post">
     <div class="form-group">
-      <label>The Question:</label>
+      <label></label>
       <input type="text" class="form-control" id="the_question" name="the_question">
     </div>
     <div class="form-group">
@@ -25,9 +25,6 @@
 
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
-
-    <a href="/surveys/<%= @survey.id() %>/edit">Edit</a><br>
-    <a href="/surveys/<%= @survey.id() %>/delete">Delete</a>
 <br>
 <br>
 <a href="/">Home</a>
