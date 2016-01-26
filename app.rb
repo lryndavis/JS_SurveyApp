@@ -4,6 +4,7 @@ require("sinatra/activerecord")
 also_reload("lib/**/*.rb")
 require("./lib/survey")
 require("./lib/question")
+require("./lib/response")
 require("pg")
 require("pry")
 

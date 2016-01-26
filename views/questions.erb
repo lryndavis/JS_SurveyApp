@@ -3,10 +3,6 @@
 <% @questions.each() do |question| %>
   <li><%= question.the_question %>
     <br>
-    <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
-    <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
-    <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
-
     <form class="" action="/questions/<%= question.id() %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button type="submit" class="btn btn-danger">Delete</button></form>
