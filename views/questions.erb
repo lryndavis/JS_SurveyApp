@@ -1,22 +1,26 @@
 <% @questions.each() do |question| %>
-  <ol><li><%= question.the_question %><br>
+  <ol><li><%= question.the_question %>
+    <br>
+    <form class="" action="/surveys/<%= question.id() %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn-block btn-danger">Delete</button>
     </li></ol>
   <% end %>
 
   <h1>Add a new question to the survey:</h1>
 
-  <form action="/surveys/<%= @survey.id %>" method="post">
+  <form action="/surveys/<%= @survey.id() %>" method="post">
     <div class="form-group">
       <label>The Question:</label>
       <input type="text" class="form-control" id="the_question" name="the_question">
     </div>
     <div class="form-group">
       <label></label>
-      <input type="hidden" class="form-control" id="survey_id" name="survey_id">
+      <input type="hidden" class="form-control" id="survey_id" name="survey_id" value="<%= @survey.id() %>">
     </div>
     <div class="form-group">
       <label></label>
-      <input type="hidden" class="form-control" id="id" name="id">
+      <input type="hidden" class="form-control" id="id" name="id" value="<%= @survey.id() %>">
     </div>
 
     <button type="submit" class="btn btn-default">Submit</button>
