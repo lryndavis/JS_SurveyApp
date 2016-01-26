@@ -32,6 +32,11 @@ get('/surveys/:id') do
   erb(:questions)
 end
 
+get('/surveys/:id/edit') do
+  @survey = Survey.find(params.fetch("id").to_i)
+  erb(:survey_edit)
+end
+
 post('/surveys/:id') do
   @survey = Survey.find(params.fetch("id").to_i)
   @questions = @survey.questions()
@@ -79,3 +84,11 @@ end
 #   @question.update({:the_question => the_question})
 #   redirect ('/surveys')
 # end
+
+patch('/surveys/:id') do
+  @surveys = Survey.all()
+  name = params.fetch("name")
+  @survey = Survey.find(params.fetch("id").to_i)
+  @survey.update({:name => name})
+  erb(:surveys)
+end
