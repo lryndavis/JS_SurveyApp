@@ -1,9 +1,9 @@
 <% @questions.each() do |question| %>
   <ol><li><%= question.the_question %>
     <br>
-    <form class="" action="/surveys/<%= question.id() %>/delete" method="post">
+    <form class="" action="/questions/<%= question.id() %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="submit" class="btn btn-danger">Delete</button></form>
     </li></ol>
   <% end %>
 

@@ -43,8 +43,17 @@ post('/surveys/:id') do
   erb(:questions)
 end
 
-delete ('/surveys/:id/delete') do
+get('/surveys/:id/delete') do
+  @survey = Survey.find(params.fetch("id").to_i)
+  @survey.delete
+  redirect ('/surveys')
+end
+
+delete('/questions/:id') do
+  @question = Question.find(params.fetch("id").to_i)
+  @survey = @question.survey()
+  @questions = @survey.questions()
   id = params[:id].to_i
   Question.delete(id)
-  redirect '/surveys'
+  erb(:questions)
 end

@@ -5,6 +5,7 @@ All Surveys
 
 <% @surveys.each() do |survey| %>
     <li><a href="/surveys/<%= survey.id() %>"><%= survey.name %>: <%= survey.id %></a><br>
+      <a href="/surveys/<%= survey.id() %>/delete">-Delete</a><br>
     </li>
   <% end %>
   <br>
