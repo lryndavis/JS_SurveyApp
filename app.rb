@@ -57,3 +57,25 @@ delete('/questions/:id') do
   Question.delete(id)
   erb(:questions)
 end
+
+get('/questions/:id/edit') do
+  @question = Question.find(params.fetch("id").to_i)
+erb(:question_edit)
+end
+
+patch('/questions/:id') do
+  the_question = params.fetch("the_question")
+  @question = Question.find(params.fetch("id").to_i)
+  @survey = @question.survey()
+  @questions = @survey.questions()
+  @question.update({:the_question => the_question})
+  erb(:questions)
+end
+
+#other patch/delete format that does NOT redirect to /:id page
+# patch('/questions/:id') do
+#   the_question = params.fetch("the_question")
+#   @question = Question.find(params.fetch("id").to_i)
+#   @question.update({:the_question => the_question})
+#   redirect ('/surveys')
+# end

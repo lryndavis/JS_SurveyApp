@@ -4,6 +4,8 @@
     <form class="" action="/questions/<%= question.id() %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button type="submit" class="btn btn-danger">Delete</button></form>
+    <br>
+    <a href="/questions/<%= question.id() %>/edit" class="btn btn-info" role="button">Edit</a>
     </li></ol>
   <% end %>
 
