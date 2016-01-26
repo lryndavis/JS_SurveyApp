@@ -1,12 +1,19 @@
+<h2><%= @survey.name()%></h2>
+
 <% @questions.each() do |question| %>
-  <ol><li><%= question.the_question %>
+  <li><%= question.the_question %>
     <br>
+    <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
+    <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
+    <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
+
     <form class="" action="/questions/<%= question.id() %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button type="submit" class="btn btn-danger">Delete</button></form>
-    <br>
     <a href="/questions/<%= question.id() %>/edit" class="btn btn-info" role="button">Edit</a>
-    </li></ol>
+    <br>
+
+    </li>
   <% end %>
 
   <h1>Add a new question to the survey:</h1>
